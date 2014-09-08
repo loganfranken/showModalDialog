@@ -32,7 +32,7 @@
 			eval(nextStatement);
         });
 		
-		window.closeModal = function () { dialog.close(); console.log(dialog); }
+		window.closeModal = function () { dialog.close(); }
 
         throw 'Execution stopped until showModalDialog is closed';
     };
