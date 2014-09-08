@@ -7,7 +7,7 @@
       <h1>showModalDialog modal demo</h1>
       <p>Dialog argments: <span id="arg"></span></p>
       </form>
-	  <a href="onclick:window.close();">Trigger window.close()</a>
+	  <a onclick="window.close();">Trigger window.close()</a>
       <script>
 	document.getElementById('arg').innerHTML = window.dialogArguments;
 	window.returnValue = "some return value";
