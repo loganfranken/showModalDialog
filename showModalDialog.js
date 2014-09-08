@@ -1,4 +1,11 @@
 (function() {
+
+	if (parent && parent.closeModal) {
+		window.close = function() {
+			try { parent.closeModal(); } catch (ex) {}
+		};
+	}
+
     window.showModalDialog = window.showModalDialog || function(url, arg, opt) {
         url = url || ''; //URL of a dialog
         arg = arg || null; //arguments to a dialog
@@ -20,11 +27,14 @@
 		var nextStatement = match[2];
 		
         dialog.addEventListener('close', function() {
-            var returnValue = document.getElementById('dialog-body').contentWindow.returnValue;
+            document.getElementById('dialog-body').contentWindow.returnValue;
             document.body.removeChild(dialog);
 			eval(nextStatement);
         });
+		
+		window.closeModal = function () { dialog.close(); console.log(dialog); }
 
         throw 'Execution stopped until showModalDialog is closed';
     };
+	
 })();
